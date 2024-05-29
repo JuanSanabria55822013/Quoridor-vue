@@ -8,7 +8,7 @@
     data() {
       return {
         Tablero: [],
-        PosicionJugador1: { row: 7, column: 5 },
+        PosicionJugador1: { row: 0, column: 4 },
         PosicionJugador2: { row: 8, column: 4 },
         TurnoJugador: 1,
         MostrarGanadorModal: false,
@@ -62,9 +62,13 @@
       BloquearCelda(row, column) {
         if (this.ControldeCeldaActivado == true) {
           const index = this.Bloqueoceldas.findIndex(Bloqueado=> Bloqueado.row === row && Bloqueado.column === column);
+          if (!(this.Bloqueoceldas.filter(b => b.row === row).length > 7 || 
+            this.Bloqueoceldas.filter(b => b.column === column).length > 7)){
           if (!(this.PosicionJugador1.row === row && this.PosicionJugador1.column === column || this.PosicionJugador2.row === row && this.PosicionJugador2.column === column)) {
             if (this.TurnoJugador === 1 && this.Contador1 < 8 && index === -1) {
-              this.Bloqueoceldas.push({ row, column });
+ 
+
+          this.Bloqueoceldas.push({ row, column });
               this.Contador1++;
               this.TurnoJugador = 2;
               this.ControldeCeldaActivado = false;
@@ -75,7 +79,8 @@
               this.ControldeCeldaActivado = false;
             }
           }
-        }
+         }
+      }      
       },
       SePuedeMover(currentrow, currentcolumn, row, column) {
         const rowDiff = Math.abs(row - currentrow);
@@ -145,18 +150,8 @@
     padding: 0;
   }
   
-  .seleccionar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(94, 131, 255, 0.5);
-    opacity: 0.6;
-    overflow: hidden;
-  }
-
-  .Tablero-container {
+  /* bloque */
+  .Tablero--container {
     position: fixed;
     z-index: 1;
     left: 50%;
@@ -169,5 +164,17 @@
     justify-content: center;
     align-items: center;
   }
-  
+  /* modificador */
+  .Tablero--container__seleccionar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(94, 131, 255, 0.5);
+    opacity: 0.6;
+    overflow: hidden;
+  }
+
+
   </style>

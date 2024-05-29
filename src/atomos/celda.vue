@@ -43,7 +43,8 @@
   };
   </script>
 <template>
-    <div class = "celda" :class="celdaClass" @click="ControlClick"></div>
+    <div class = "celda" :class="celdaClass" @click="ControlClick">
+    </div>
 </template>
 <style scoped>
   /* Bloque */
@@ -82,4 +83,5 @@
   .celda--bloqueada {
     background-color: #333333;
   }
+
 </style>

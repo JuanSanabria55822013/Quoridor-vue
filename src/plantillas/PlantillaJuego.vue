@@ -27,8 +27,8 @@
   };
   </script>
   <template>
-    <div :class="{'seleccionar': ControldeCeldaActivado}">
-      <div class="Tablero-container">
+    <div :class="{'Tablero--container__seleccionar': ControldeCeldaActivado}">
+      <div class="Tablero--container">
         <Tablero
           :Tablero="Tablero"
           :PosicionJugador1="PosicionJugador1"
@@ -49,7 +49,8 @@
   </template>  
   <style scoped>
 
-  .Tablero-container {
+  /* bloque */
+  .Tablero--container {
     position: fixed;
     z-index: 1;
     left: 0;

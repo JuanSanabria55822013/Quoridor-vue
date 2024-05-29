@@ -19,9 +19,9 @@
 
   <template>
     <div class="modal" v-if="MostrarModal">
-      <div class="modal-content">
+      <div class="modal--content">
         <p>¡Ganaste jugador {{ ganador }}!</p>
-        <button class="modal-content__reset-button" @click="resetGame">Reiniciar</button>
+        <button class="modal--content__reset-button" @click="resetGame">Reiniciar</button>
       </div>
     </div>
   </template>
@@ -41,8 +41,8 @@
   justify-content: center;
   align-items: center;
 }
-
-.modal-content {
+/* Elemento */
+.modal--content {
   background-color: #1a1a1d;
   padding: 20px;
   border: 2px solid #c3073f;
@@ -57,8 +57,8 @@
   animation: fadeIn 0.5s;
 }
 
-/* Elemento */
-.modal-content__reset-button {
+
+.modal--content__reset-button {
   background-color: #c3073f;
   color: white;
   padding: 10px 20px;
